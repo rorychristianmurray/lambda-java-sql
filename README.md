@@ -60,9 +60,16 @@ WHERE supplier_id = '11';
 ### list orders descending by the order date. The order with date 1998-05-06 should be at the top.
 > This can be done with SELECT, WHERE, and ORDER BY clauses
 
+SELECT *
+FROM orders
+ORDER BY order_date DESC;
 
 ### find all suppliers who have names longer than 20 characters. You can use `length(company_name)` to get the length of the name. Returns 11 records.
 > This can be done with SELECT and WHERE clauses
+
+SELECT *
+FROM suppliers
+WHERE length(company_name) > 20;
 
 
 ### find all customers that include the word 'MARKET' in the contact title. Should return 19 records.
@@ -71,6 +78,11 @@ WHERE supplier_id = '11';
 > Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
 
 > Remember to convert your contact title to all upper case for case insenstive comparing so upper(contact_title)
+
+SELECT *
+FROM customers
+WHERE UPPER(contact_title) LIKE UPPER('%Market%')
+
 
 
 ### add a customer record for   
